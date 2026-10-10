@@ -41225,7 +41225,7 @@ const _serversPart32: MCPServer[] = [
     name: 'Warppay402 MCP Server',
     description: 'x402 V2 monetization gateway & MCP tool suite for Base, Solana, Arbitrum, & Arc multi-chain AI agents. Provides gasless USDC micropayments, web scraping, PDF extraction, Aerodrome DeFi automation, and smart contract deployments. API Free and Non-Custodial.',
     author: 'Warppay402',
-    github_url: 'https://github.com/Warppay402/Warppay402-MCP-Server',
+    github_url: null, // submitted repo is a fork of modelcontextprotocol/registry, not this server's source (2026-10-10)
     official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
