@@ -40541,6 +40541,7 @@ const _serversPart32: MCPServer[] = [
     // link list, not this server's source, so it is not published as one.
     // Endpoint checked 2026-10-10: initialize -> serverInfo "Kallax.io".
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://kallax.io/',
@@ -40557,6 +40558,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Computer-use MCP server: give Claude Code, Codex, Cursor or any MCP client hands on a real screen: your computer (Mac/Windows/Linux) and your Android phone (beta). Clicks, types and reads the screen, even in apps with no API.',
     author: 'Auten',
     github_url: 'https://github.com/auten-ai/auten-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://auten.ai/mcp',
@@ -40575,6 +40577,7 @@ const _serversPart32: MCPServer[] = [
     author: 'iter0',
     // Submitted repo (inchwormz/iter0-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://iter0.com/mcp',
@@ -40592,6 +40595,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Hosted, read-only MCP server for ORANO: lets ChatGPT, Claude or Cursor read your ORANO library, i.e. projects built from saved Reels, videos, articles and PDFs, with summaries, ordered tasks, video context (transcript, on-screen text, links) and curated memory facts. Streamable HTTP with a personal bearer key.',
     author: 'ORANO',
     github_url: 'https://github.com/infotik/orano-mcp-server',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://oranoai.com/mcp',
@@ -40610,6 +40614,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Ball Ranks',
     // Submitted repo (Ollynov/ball-ranks-plugin) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://ballranks.com/developers',
@@ -40627,6 +40632,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Run approved shell commands on remote computers through AI assistants. The remote computer needs only curl and bash, with no SSH access or installation.',
     author: 'onlsol',
     github_url: 'https://github.com/onlsol/relay.remotify.run',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://relay.remotify.run',
@@ -40645,6 +40651,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Local decision memory for compatible coding agents through MCP or the CLI. Explicitly save engineering decisions, reasons, rejected approaches and conditions for reconsideration in SQLite, then retrieve that context in later sessions with tools such as prior_attempts. MIT-licensed Python project; core storage and retrieval make no LLM calls. Runs locally over stdio.',
     author: 'masondelan',
     github_url: 'https://github.com/masondelan/selvedge',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://selvedge.sh/',
@@ -40682,6 +40689,7 @@ const _serversPart32: MCPServer[] = [
     author: 'MACH',
     // Submitted repo (TheAliphant/mach-base) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://mach.gallery',
@@ -40700,6 +40708,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Shipvela',
     // Submitted repo (stefanautomateed/shipvela-codex) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://shipvela.com/integrations/assistants',
@@ -40717,6 +40726,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Voidpay MCP connects AI agents to Voidly\'s hosted marketplace for agent services. Read-only tools find services and storefronts and prepare checkout links; the owner approves any payment in their own browser. It never signs, pays or holds keys. Local (npm) or hosted (Streamable HTTP).',
     author: 'Voidly',
     github_url: 'https://github.com/voidly-ai/pay-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://voidly.ai/pay',
@@ -40735,6 +40745,7 @@ const _serversPart32: MCPServer[] = [
     author: 'AcqPath',
     // Submitted repo (reflectme-source/acqpath-distribution) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://developers.getacqpath.com',
@@ -40753,6 +40764,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Aident AI',
     // Submitted repo (Aident-AI/aident-skill) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://aident.ai',
@@ -40771,6 +40783,7 @@ const _serversPart32: MCPServer[] = [
     author: 'objekts',
     // Submitted repo (peach420fuzz/objekts-production-desk) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://objekts.ai/',
@@ -40787,6 +40800,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Eye.Art',
     // Submitted repo (jacobwell/eye-art-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://eye.art/polyphemus',
@@ -40805,6 +40819,7 @@ const _serversPart32: MCPServer[] = [
     author: 'ClipTalk',
     // Submitted repo (payamsaremi/cliptalk-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://www.cliptalk.pro/mcp-server',
@@ -40822,6 +40837,7 @@ const _serversPart32: MCPServer[] = [
     description: 'MCP access to AI content and carousel creation, video clipping, social scheduling and publishing. Hosted Streamable HTTP: https://app.autoposting.ai/mcp with workspace-scoped OAuth. This public TypeScript CLI repository also implements stdio MCP: install @autoposting.ai/cli, set AUTOPOSTING_API_KEY, run ap mcp. Requires a paid Autoposting account; publishing requires connected social accounts.',
     author: 'Autoposting.ai',
     github_url: 'https://github.com/Autoposting-ai/autoposting-cli',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://docs.autoposting.ai/mcp/overview',
@@ -40839,6 +40855,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Official VideoGen MCP server for creating product demos, ecommerce ads, and marketing videos from AI assistants. Generate and edit videos, images, voiceovers, music, and avatars; remix projects and export finished videos. Connect remotely at https://mcp.videogen.io/mcp with OAuth or your VideoGen API key, or run npx -y @videogen/mcp locally. Setup: https://videogen.io/videogen-mcp. Developer docs: https://docs.videogen.io/libraries/mcp.',
     author: 'VideoGen',
     github_url: 'https://github.com/video-gen/videogen-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://videogen.io/videogen-mcp',
@@ -40857,6 +40874,7 @@ const _serversPart32: MCPServer[] = [
     description: 'MIT-licensed developer-alpha Rust engine for encrypted, append-only knowledge shared through a local MCP server. It supports signed records, device sync, keyword search and scoped, expiring grants. Build from source with cargo build --release --locked after cloning the repository; MCP setup requires an initialized store and an owner-issued grant. No public hosted endpoint or independent security audit is claimed. Plaintext returned to a hosted model is visible to that model provider. Submitted by maintainer Louis Beaumont with Codex assistance.',
     author: 'louis030195',
     github_url: 'https://github.com/louis030195/hyperconsciousness',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://github.com/louis030195/hyperconsciousness',
@@ -40873,6 +40891,7 @@ const _serversPart32: MCPServer[] = [
     description: 'OrkasVideoStudio is an MIT-licensed, local-first TypeScript CLI and MCP toolkit that lets coding agents compose, edit, generate, and automatically assemble videos from editable plan.json timelines. Install from source with Node.js 22 or newer, ffmpeg and pnpm; the MCP server runs locally via node packages/mcp/dist/index.js after building the repository. Composition and editing need no paid provider keys; optional AI generation uses your own provider keys.',
     author: 'Orkas AI',
     github_url: 'https://github.com/Orkas-AI/Orkas-VideoStudio',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://github.com/Orkas-AI/Orkas-VideoStudio',
@@ -40890,6 +40909,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Court Rules',
     // Submitted repo (foklepoint/court-rules-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://www.courtrules.app/?ref=mymcptools',
@@ -40907,6 +40927,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Free, read-only hosted MCP for searching the U.S. Code and retrieving complete sections from the published OLRC corpus. Streamable HTTP endpoint: https://uscode.ecfr.io/mcp; no API key or account required. Tools: search_uscode, get_section, list_titles. Responses include release metadata and legal/inline citations linked to uscode.ecfr.io. The source is a published OLRC release, not real-time amendments. Local Node.js stdio and Docker are also supported.',
     author: 'lrehmann',
     github_url: 'https://github.com/lrehmann/uscode-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://uscode.ecfr.io/developers',
@@ -40924,6 +40945,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Free, read-only search, text retrieval, and title browsing for U.S. federal regulations. Results include legal and inline citations linked to ecfr.io, source dates, and stale-data flags. Hosted Streamable HTTP at https://ecfr.io/mcp; no API key or account. Independent eCFR mirror.',
     author: 'lrehmann',
     github_url: 'https://github.com/lrehmann/ecfr-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://ecfr.io/developers',
@@ -40942,6 +40964,7 @@ const _serversPart32: MCPServer[] = [
     author: 'WebAsk',
     // Submitted repo (WebAskio/webask-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://webask.io/',
@@ -40959,6 +40982,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Your agent hit a limit? Keep working. MateMCP securely connects AI chats to your computer via MCP, with scoped files, shell, browser, desktop control, approvals, and secrets.',
     author: 'vrassouli',
     github_url: 'https://github.com/vrassouli/MateMCP',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://matemcp.com',
@@ -40977,6 +41001,7 @@ const _serversPart32: MCPServer[] = [
     author: 'thirds.ai',
     // Submitted repo (thirdsai/skills) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://thirds.ai/',
@@ -40995,6 +41020,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Jithox',
     // Submitted repo (victor-emmanuel-c/jithox-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://jithox.com',
@@ -41013,6 +41039,7 @@ const _serversPart32: MCPServer[] = [
     author: 'CosVoice',
     // Submitted repo (CosVoice/cosvoice-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://cosvoice.com/mcp',
@@ -41031,6 +41058,7 @@ const _serversPart32: MCPServer[] = [
     author: 'SalesTouch',
     // Submitted repo (antoineDsh/SalesTouch) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://www.salestouch.io',
@@ -41048,6 +41076,7 @@ const _serversPart32: MCPServer[] = [
     description: 'ReadGZH provides a hosted MCP endpoint that lets AI assistants read public WeChat Official Account articles by URL and search, list, and fetch articles already in the ReadGZH cache. It also offers a clean web reader and REST API. Remote endpoint: https://api.readgzh.site/mcp-server . Documentation: https://readgzh.site/docs .',
     author: 'ReadGZH',
     github_url: 'https://github.com/sweesama/readgzh',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://readgzh.site/',
@@ -41066,6 +41095,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Remote MCP for Orbit task management: connect to https://orbit.noveum.ai/mcp over Streamable HTTP with workspace-scoped OAuth. An Orbit account and consent are required; no API key. Manage issues, projects, sprints, docs and files. Hosted use requires no local installation. The repository contains the full Apache-2.0 application, which can alternatively be self-hosted with Docker; Docker is selected because this form has no Remote option. Please classify the hosted connector as remote, not stdio. Setup: https://github.com/Noveum/orbit-mcp',
     author: 'Noveum',
     github_url: 'https://github.com/Noveum/orbit',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://orbit.noveum.ai/mcp',
@@ -41085,6 +41115,7 @@ const _serversPart32: MCPServer[] = [
     author: 'CareClinic',
     // Submitted repo (tandemloop/careclinic_mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://careclinic.io/careclinic-mcp/',
@@ -41102,6 +41133,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Find your next customers across 626,000,000 contacts — emails and phone numbers.',
     author: 'Argorant',
     github_url: 'https://github.com/argorant/argorant-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://argorant.com',
@@ -41120,6 +41152,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Kleo creates human-directed narrated films and storyboard animatics through an MCP-compatible AI assistant. The workflow covers treatment, storyboard, generation, narration, rendering and download. Connect to the hosted Streamable HTTP endpoint https://mcp.kleooai.com/mcp with OAuth 2.1; no local install is required for hosted use. Source is available on GitHub. Credit-based service: 7 starter credits, a 5-credit animatic, and purchased credit packs required for generated-footage films. Setup: https://kleooai.com/connect/',
     author: 'Kleo',
     github_url: 'https://github.com/tonnooooo/kleo-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://kleooai.com/',
@@ -41137,6 +41170,7 @@ const _serversPart32: MCPServer[] = [
     description: '340k SVG icons searchable via remote MCP for Cursor and Claude; hosted endpoint at icons.leularia.com/api/mcp.',
     author: 'LeulAria',
     github_url: 'https://github.com/LeulAria/Aria-Icons',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://icons.leularia.com',
@@ -41156,6 +41190,7 @@ const _serversPart32: MCPServer[] = [
     author: 'GetSign',
     // Submitted repo (Getsign-JP/getsign-mcp-plugin) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://getsign.io/mcp',
@@ -41173,6 +41208,7 @@ const _serversPart32: MCPServer[] = [
     description: 'MCP server for Readdit Later - search, organize, and chat with your saved Reddit posts from Claude, Cursor, Windsurf, or any MCP client. 20 tools including keyword and semantic search, label management, reading collections, export (JSON/CSV/Markdown/Obsidian), Notion sync, and library insights. Run npx readdit-later-mcp setup to auto-configure your client. Requires the Readdit Later Chrome extension.',
     author: 'SanjhaiPrakash18',
     github_url: 'https://github.com/SanjhaiPrakash18/readdit-later-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://readditlater.in/features/mcp',
@@ -41190,6 +41226,7 @@ const _serversPart32: MCPServer[] = [
     description: 'x402 V2 monetization gateway & MCP tool suite for Base, Solana, Arbitrum, & Arc multi-chain AI agents. Provides gasless USDC micropayments, web scraping, PDF extraction, Aerodrome DeFi automation, and smart contract deployments. API Free and Non-Custodial.',
     author: 'Warppay402',
     github_url: 'https://github.com/Warppay402/Warppay402-MCP-Server',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://www.warppay402.com',
@@ -41208,6 +41245,7 @@ const _serversPart32: MCPServer[] = [
     author: 'Axialis Software',
     // Submitted repo (marcemile/iconvectors-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://iconvectors.io/help/mcp-integration.html',
@@ -41223,6 +41261,7 @@ const _serversPart32: MCPServer[] = [
     author: 'PassFast',
     // Submitted repo (aberkaneso/passfast-mcp) holds docs/config for a hosted or proprietary server, not its source.
     github_url: null,
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: false,
     verification: 'unresolved',
     website_url: 'https://passfa.st',
@@ -41240,6 +41279,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Shared decision memory for product teams using AI agents, preserving product and engineering choices, rationale, rejected options, and current constraints across handoffs.',
     author: 'Lockstep',
     github_url: 'https://github.com/lockstep-team-agent/lockstep',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://getlockstep.dev',
@@ -41258,6 +41298,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Remote MCP for real group airfare quotes (10+ passengers) via https://easygroupflights.com/ (IATA). Not OTA scraping. Endpoint: https://mcp.easygroupflights.com/mcp',
     author: 'EasyGroupFlights',
     github_url: 'https://github.com/codeblockssk/easygroupflights-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://easygroupflights.com/',
@@ -41312,6 +41353,7 @@ const _serversPart32: MCPServer[] = [
     description: 'MCP server for GodPrompt — AI software-development workflow guidance with task routing, TDD, debugging protocols, verification gates, and progressive disclosure.',
     author: 'Tomi Seregi',
     github_url: 'https://github.com/AKzar1el/god-prompt-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://tomiseregi.si/projects/god-prompt',
@@ -41330,6 +41372,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Neither makes selected project notes and documents retrievable through MCP, with supporting source evidence. Documented clients: Cursor and Claude Desktop. Install: npx -y @neitherai/mcp-server@latest. Requires Node.js 20+ and NEITHER_API_KEY. First-use: https://github.com/stonianua/neither-mcp/blob/main/llms-install.md',
     author: 'Neither',
     github_url: 'https://github.com/stonianua/neither-mcp',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://www.neither.online/start/?product=dev',
@@ -41347,6 +41390,7 @@ const _serversPart32: MCPServer[] = [
     description: 'Evidence-backed Skilled Worker sponsor change-impact decisions for England via a production Model Context Protocol server.',
     author: 'ChanghuLiu',
     github_url: 'https://github.com/ChanghuLiu/england-works-watch',
+    official: true, // vendor-submitted; evidence in memory/mymcptools-official-flag-review-2026-10-10.jsonl
     source_verified: true,
     verification: 'live',
     website_url: 'https://works.regevidencehub.com',
