@@ -45,8 +45,11 @@ export const FEATURED_LIVE = "Live the minute payment clears";
  * already mail — and neither the ack mail nor the success screen ever named
  * the $9 tier. `submit-ack` is the link in that mail; `submit-success` is the
  * button on the screen they see right after pressing submit.
+ *
+ * `queue-status` is the one-time follow-up to free submitters from before the
+ * ack door existed (src/lib/queue-status.ts).
  */
-export const MAKER_DOOR_ENTRIES = [MAKER_DOOR_FROM, "submit-ack", "submit-success"] as const;
+export const MAKER_DOOR_ENTRIES = [MAKER_DOOR_FROM, "submit-ack", "submit-success", "queue-status"] as const;
 export type MakerDoorEntry = (typeof MAKER_DOOR_ENTRIES)[number];
 
 export function cleanDoorEntry(raw: unknown): MakerDoorEntry | undefined {
