@@ -41291,6 +41291,9 @@ const _serversPart32: MCPServer[] = [
     description: 'MCP server for searching locally captured screen text and audio transcripts, recalling prior work, and building meeting notes or work summaries. Requires a running Screenpipe instance and Node.js 18+. Run: npx -y screenpipe-mcp@latest. Current source: packages/screenpipe-mcp. Source-available under the Screenpipe Commercial License. Capture storage is local by default; configured cloud AI, transcription, sync, and integrations can send context off-device. Retrieved context is processed by the connected assistant’s configured model. The server includes actions as well as retrieval tools.',
     author: 'Screenpipe',
     github_url: 'https://github.com/screenpipe/screenpipe',
+    // Vendor-maintained: lives in Screenpipe's own repo at packages/screenpipe-mcp and
+    // its package.json names "Screenpipe" as author (verified 2026-10-10, maker correction).
+    official: true,
     source_verified: true,
     verification: 'live',
     website_url: 'https://screenpipe.com/',
