@@ -46,7 +46,8 @@
     "queue:mail": "npx tsx scripts/queue-status-mail.mts",
     "robots:selfcheck": "npx tsx scripts/robots-selfcheck.mts",
     "cache:selfcheck": "npx tsx scripts/cache-config-selfcheck.mts",
-    "pass:e2e": "npx tsx scripts/pass-live-e2e.mts"
+    "pass:e2e": "npx tsx scripts/pass-live-e2e.mts",
+    "queue:cohort": "npx tsx scripts/queue-status-cohort.mts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",

@@ -140,5 +140,31 @@ await check('sender script is dry-run by default and ledgers every send outside 
   ok(!/bcc/i.test(src.replace(/\/\*[\s\S]*?\*\//g, '')), 'bcc on outbound');
 });
 
+await check('cohort read attributes a payer by ledger email/repo even when Stripe dropped the entry tag', async () => {
+  const q = await import(LIB.href);
+  ok(typeof q.readQueueStatusCohort === 'function', 'no cohort read: the 72h checkpoint has no instrument');
+  const sent = '2026-10-10T17:50:00Z';
+  const t = (iso: string) => Math.floor(Date.parse(iso) / 1000);
+  const ledger = [
+    { email: 'Maker@Acme.dev', github: 'https://github.com/acme/mcp', sentAt: sent },
+    { email: 'other@x.io', github: 'https://github.com/x/y', sentAt: sent },
+    { email: 'funnel-probe+qs@apistatuscheck.com', github: 'https://github.com/p/p', sentAt: sent },
+  ];
+  const base = { status: 'complete', paymentStatus: 'paid', amountTotal: 900, entry: null as string | null, github: null as string | null };
+  const r = q.readQueueStatusCohort(ledger, [
+    { ...base, id: 'a', created: t('2026-10-11T01:00:00Z'), email: 'maker@acme.dev' },               // email, entry dropped pre-deploy
+    { ...base, id: 'b', created: t('2026-10-11T02:00:00Z'), email: 'alt@else.com', github: 'https://github.com/X/y/' }, // repo match
+    { ...base, id: 'c', created: t('2026-10-09T02:00:00Z'), email: 'other@x.io' },                     // paid BEFORE the mail
+    { ...base, id: 'd', created: t('2026-10-11T03:00:00Z'), email: 'stranger@z.com', entry: 'queue-status', status: 'expired', paymentStatus: 'unpaid' },
+    { ...base, id: 'e', created: t('2026-10-11T04:00:00Z'), email: 'funnel-probe+qs@apistatuscheck.com', entry: 'queue-status' },
+    { ...base, id: 'f', created: t('2026-10-11T05:00:00Z'), email: 'nobody@n.com', entry: 'submit-ack' },
+  ], new Date('2026-10-10T21:00:00Z'));
+  ok(r.recipients === 2, `recipients ${r.recipients} (probe must not count)`);
+  const ids = r.reachedStripe.map((h: { id: string; via: string }) => `${h.id}:${h.via}`).join(',');
+  ok(ids === 'a:email,b:github,d:entry', `reached ${ids}`);
+  ok(r.paid.length === 2 && r.cashCents === 1800 && r.payers === 2, `paid ${r.paid.length} cash ${r.cashCents}`);
+  ok(r.checkpointAt === '2026-10-13T17:50:00.000Z' && r.hoursElapsed === 3 && r.due === false, `checkpoint ${r.checkpointAt} h${r.hoursElapsed} due ${r.due}`);
+});
+
 console.log(failures ? `\n${failures} check(s) failed` : '\nall queue-status checks passed');
 process.exit(failures ? 1 : 0);

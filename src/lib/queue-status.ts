@@ -180,3 +180,72 @@ export function queueStatusEmailHtml(sub: QueuedSubmission, siteUrl: string): st
       <p style="color: #94a3b8; font-size: 14px; margin-top: 24px;">— The MyMCPTools Team</p>
     </div>`;
 }
+
+/**
+ * THE COHORT READ (2026-10-10, judge on 62519d3: "report the 72h read on
+ * queue-status arrivals/Stripe conversions before building any more outbound").
+ * Stripe metadata.entry=queue-status only exists once 62519d3 deploys, and a
+ * maker who opens the door before then pays with the entry silently dropped —
+ * so attribution joins on the ledger instead: the session's customer email OR
+ * its metadata.github matches a recipient, OR it carries the entry tag, AND it
+ * was created after that recipient's mail went out. Pure; the script does I/O.
+ */
+export interface CohortLedgerRow {
+  email: string;
+  github: string;
+  sentAt: string; // ISO
+}
+export interface CohortStripeSession {
+  id: string;
+  created: number; // unix seconds
+  status: string; // open | complete | expired
+  paymentStatus: string; // paid | unpaid | no_payment_required
+  amountTotal: number | null; // cents
+  email: string | null;
+  github: string | null; // metadata.github
+  entry: string | null; // metadata.entry
+}
+export interface CohortSessionHit extends CohortStripeSession {
+  via: "entry" | "email" | "github";
+}
+export const COHORT_WINDOW_HOURS = 72;
+
+export function readQueueStatusCohort(ledger: CohortLedgerRow[], sessions: CohortStripeSession[], now: Date) {
+  const rows = ledger.filter((r) => r.email && !isInternalAddress(r.email));
+  const firstSent = rows.reduce((m, r) => Math.min(m, Date.parse(r.sentAt)), Infinity);
+  const sentByEmail = new Map<string, number>();
+  const sentByRepo = new Map<string, number>();
+  for (const r of rows) {
+    const t = Date.parse(r.sentAt);
+    const e = r.email.trim().toLowerCase();
+    sentByEmail.set(e, Math.min(sentByEmail.get(e) ?? Infinity, t));
+    const g = normGithub(r.github);
+    if (g) sentByRepo.set(g, Math.min(sentByRepo.get(g) ?? Infinity, t));
+  }
+  const hits: CohortSessionHit[] = [];
+  for (const s of sessions) {
+    const at = s.created * 1000;
+    const email = (s.email || "").trim().toLowerCase();
+    if (email && isInternalAddress(email)) continue; // our own walks never count
+    const byEmail = sentByEmail.get(email);
+    const byRepo = sentByRepo.get(normGithub(s.github));
+    let via: CohortSessionHit["via"] | null = null;
+    if (s.entry === QUEUE_STATUS_ENTRY && at >= firstSent) via = "entry";
+    else if (byEmail !== undefined && at >= byEmail) via = "email";
+    else if (byRepo !== undefined && at >= byRepo) via = "github";
+    if (via) hits.push({ ...s, via });
+  }
+  const paid = hits.filter((h) => h.status === "complete" && h.paymentStatus === "paid");
+  const checkpointAt = new Date(firstSent + COHORT_WINDOW_HOURS * 3600_000);
+  return {
+    recipients: rows.length,
+    firstSentAt: Number.isFinite(firstSent) ? new Date(firstSent).toISOString() : null,
+    checkpointAt: Number.isFinite(firstSent) ? checkpointAt.toISOString() : null,
+    hoursElapsed: Number.isFinite(firstSent) ? Math.floor((now.getTime() - firstSent) / 3600_000) : 0,
+    due: Number.isFinite(firstSent) && now >= checkpointAt,
+    reachedStripe: hits,
+    paid,
+    cashCents: paid.reduce((n, h) => n + (h.amountTotal ?? 0), 0),
+    payers: new Set(paid.map((h) => (h.email || h.github || h.id).toLowerCase())).size,
+  };
+}
