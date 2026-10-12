@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import Link from "next/link";
 import { ackDoorHref, cleanDoorEntry, FEATURED_LIVE, FREE_QUEUE, type MakerDoorEntry, type SubmittedFields } from "@/lib/maker-door";
 
@@ -19,6 +19,13 @@ export default function SubmitPage() {
   const [doorFrom, setDoorFrom] = useState<MakerDoorEntry | undefined>(undefined);
   // A free submission's fields, handed back by the success screen's door.
   const [sent, setSent] = useState<{ fields: SubmittedFields; server?: string } | null>(null);
+  // Every maker door ends in #form, but the browser's own hash jump fires on
+  // the static HTML — before this effect re-keys the form and drops the
+  // Featured banner in above it — so a door press landed on the tier picker
+  // with the filled form and its $9 button ~3 mobile screens down (queue-status
+  // walk, 2026-10-12, 360px). Jump again once the prefilled form is rendered.
+  const formCard = useRef<HTMLDivElement>(null);
+  const [jumpToForm, setJumpToForm] = useState(false);
 
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
@@ -33,7 +40,14 @@ export default function SubmitPage() {
       if (v) next[k] = v.slice(0, 500);
     }
     setPrefill(next);
+    if (window.location.hash === "#form") setJumpToForm(true);
   }, []);
+
+  useEffect(() => {
+    if (!jumpToForm) return;
+    setJumpToForm(false);
+    requestAnimationFrame(() => formCard.current?.scrollIntoView({ block: "start" }));
+  }, [jumpToForm]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -253,10 +267,34 @@ export default function SubmitPage() {
       </div>
 
       {/* Submission Form */}
-      <div className={`rounded-xl border p-8 ${tier !== "free" ? "bg-gray-900 border-yellow-800/50" : "bg-gray-900 border-gray-800"}`}>
+      <div ref={formCard} data-form-card className={`scroll-mt-20 rounded-xl border p-8 ${tier !== "free" ? "bg-gray-900 border-yellow-800/50" : "bg-gray-900 border-gray-800"}`}>
         {(tier === "featured" || tier === "pro") && (
           <div className="mb-6 flex items-center gap-2 text-sm text-yellow-300 bg-yellow-900/20 border border-yellow-800/50 rounded-lg px-4 py-3">
             ⭐ Featured listing — you&apos;ll be redirected to secure checkout after filling out this form.
+          </div>
+        )}
+
+        {/* A door press arrives with every field filled from the maker's own
+            submission, and the mail promised "one step to checkout" — but the
+            form's own button sat ~250px below a 640px phone screen. Same form,
+            same submit handler; this just puts the press where they land. */}
+        {doorFrom && tier !== "free" && prefill.name && prefill.email && (
+          <div data-door-quick className="mb-6 rounded-lg border border-yellow-800/50 bg-gray-950 p-4">
+            <p className="text-sm text-gray-300 mb-3">
+              Everything below is already filled in from your submission of{" "}
+              <span className="font-semibold text-white">{prefill.name}</span>. Check it if you like, or go straight to checkout.
+            </p>
+            <button
+              type="submit"
+              form="form"
+              disabled={status === "submitting"}
+              className={`w-full px-6 py-3 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium rounded-lg transition ${
+                tier === "pro" ? "bg-emerald-600 hover:bg-emerald-500" : "bg-yellow-600 hover:bg-yellow-500"
+              }`}
+            >
+              {status === "submitting" ? "Processing…" : tier === "pro" ? "Continue to Checkout — $49" : "Continue to Checkout — $9"}
+            </button>
+            {status === "error" && <p className="mt-3 text-sm text-red-300">{errorMsg}</p>}
           </div>
         )}
 
